@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vue Cal</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vuejs-paginator/2.0.0/vuejs-paginator.js"></script> 
+
+<script></script>
+  <style>
+  .form-control {
+    margin-bottom: 10px;
+  }
+  .col-md-4{
+    border: 2px solid black;
+
+  }
+  .btn-danger {
+    margin-top: 8px;
+  }
+  select{
+    margin-top: 32px;
+    margin-left: 5px;
+  }
+  p{
+    float:right;
+    font-size:16px;
+  }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <h1>PayPal Assignment</h1>
+    </div>
+  </nav>
+
+  <div class="container-fluid" id="events">
+    <div class="col-md-8">
+    <p>Sort By :
+    <select id="sortSelect" v-on:change="changeItem">
+        <option value="" disabled selected>Select your option</option>
+        <option>Transaction ID</option>
+        <option>Title</option>
+        <option>Amount</option>
+    </select>
+    </p>
+    <ul class="pagination pagination-lg">
+  <li id="1" class="active"><a v-on:click="pageChange(1)" href="#">1</a></li>
+  <li id="2"><a v-on:click="pageChange(2)" href="#">2</a></li>
+  <li id="3"><a v-on:click="pageChange(3)" href="#">3</a></li>
+  <li id="4"><a v-on:click="pageChange(4)" href="#">4</a></li>
+  <li id="5"><a v-on:click="pageChange(5)" href="#">5</a></li>
+  <li id="6"><a v-on:click="pageChange(6)" href="#">6</a></li>
+  <li id="7"><a v-on:click="pageChange(7)" href="#">7</a></li>
+  <li id="8"><a v-on:click="pageChange(8)" href="#">8</a></li>
+  <li id="9"><a v-on:click="pageChange(9)" href="#">9</a></li>
+  <li id="10"><a v-on:click="pageChange(10)" href="#">10</a></li>
+  <li id="11"><a v-on:click="pageChange(11)" href="#">11</a></li>
+  <li id="12"><a v-on:click="pageChange(12)" href="#">12</a></li>
+  <li id="13"><a v-on:click="pageChange(13)" href="#">13</a></li>
+  <li id="14"><a v-on:click="pageChange(14)" href="#">14</a></li>
+  <li id="15"><a v-on:click="pageChange(15)" href="#">15</a></li>
+  <li id="16"><a v-on:click="pageChange(16)" href="#">16</a></li>
+  <li id="17"><a v-on:click="pageChange(17)" href="#">17</a></li>
+  <li id="18"><a v-on:click="pageChange(18)" href="#">18</a></li>
+  <li id="19"><a v-on:click="pageChange(19)" href="#">19</a></li>
+  <li id="20"><a v-on:click="pageChange(20)" href="#">20</a></li>
+  </ul>
+  
+    <table class="table table-bordered table-hover" id="myTable">
+    <thead class="thead-default">
+      <tr>
+        <th>Transaction ID</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Name Of the Merchant</th>
+        <th>Date</th>
+        <th>TimeStamp</th>
+        <th>Amount</th>
+        <th>Location</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr v-for="event in events">
+      <td>{{event.TransactionID}}</td>
+      <td>{{event.Title}}</td>
+      <td>{{event.Description}}</td>
+      <td>{{event.NameOfTheMerchant}}</td>
+      <td>{{event.Date}}</td>
+      <td>{{event.TimeStamp}}</td>
+      <td>{{event.Amount}}</td>
+      <td>{{event.location.coordinates}}</td>
+    </tr>
+    </tbody>
+    <tbody>
+
+    </tbody>
+    </table>
+    
+    </div>
+    <div class="col-md-4">
+    <ol class="breadcrumb">
+      <li><a href="#" v-on:click="dataAnalysis(1)">Top Selling Products</a>
+      </li>
+      <li><a href="#" v-on:click="dataAnalysis(2)">Top Merchants</a></li>
+      <li class="active">Weekly Report</li>
+    </ol>
+    <div id="myDiv"></div>
+    <div id="tm"></div>
+    <div id="wr"></div>
+    </div>
+  </div>
+</body>
+<script src="node_modules/vue/dist/vue.min.js"></script>
+<script src="node_modules/vue-resource/dist/vue-resource.min.js"></script>
+<script src="app.js"></script>
+<script>
+</script>
+</html>
