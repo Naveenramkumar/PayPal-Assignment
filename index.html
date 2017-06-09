@@ -24,10 +24,6 @@
   .form-control {
     margin-bottom: 10px;
   }
-  .col-md-4{
-    border: 2px solid black;
-
-  }
   .btn-danger {
     margin-top: 8px;
   }
@@ -58,6 +54,8 @@
         <option>Title</option>
         <option>Amount</option>
     </select>
+    <br/>
+    <br/>showing 50 results per page
     </p>
     <ul class="pagination pagination-lg">
   <li id="1" class="active"><a v-on:click="pageChange(1)" href="#">1</a></li>
@@ -108,21 +106,16 @@
     </tr>
     </tbody>
     <tbody>
-
     </tbody>
     </table>
-    
     </div>
     <div class="col-md-4">
     <ol class="breadcrumb">
-      <li><a href="#" v-on:click="dataAnalysis(1)">Top Selling Products</a>
-      </li>
+      <li><a href="#" v-on:click="dataAnalysis(1)">Top Selling Products</a></li>
       <li><a href="#" v-on:click="dataAnalysis(2)">Top Merchants</a></li>
-      <li class="active">Weekly Report</li>
+      <li><a href="#" v-on:click="dataAnalysis(3)">Monthly Report</a></li>
     </ol>
     <div id="myDiv"></div>
-    <div id="tm"></div>
-    <div id="wr"></div>
     </div>
   </div>
 </body>

@@ -1,12 +1,14 @@
 {
-  "name": "vue-event-bulletin",
+  "name": "Transactions",
   "version": "1.0.0",
-  "description": "Demo application for the scotch.io tutorial",
+  "description": "PayPal Assignment",
   "main": "server.js",
-  "author": "Ryan Chenkie, Jason Lam",
-  "license": "MIT",
+  "author": "Naveen",
+  "scripts": {
+    "install":"npm install method-override | npm install errorhandler",
+    "start": "node server.js"
+  },
   "dependencies": {
-
     "angular": "^1.5.6",
     "angular-route": "^1.5.6",
     "angular-jwt": "^0.0.9",
@@ -27,7 +29,7 @@
   "devDependencies": {
     "body-parser": "^1.14.1",
     "errorhandler": "^1.4.2",
-    "method-override": "^2.3.5",
+    "method-override": "^2.3.9",
     "morgan": "^1.6.1"
   }
 }

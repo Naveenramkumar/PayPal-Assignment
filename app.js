@@ -368,7 +368,15 @@ new Vue({
 var data = [{
   x: [Title1,Title2,Title3,Title4,Title5],
   y: [max1,max2,max3,max4,max5],
-  type: 'bar'
+  marker:{
+    color: ['rgba(222,45,38,0.8)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)', 'rgba(204,204,204,1)'],
+    line: {
+      color: 'rgba(0,0,0,1.0)',
+      width: 1
+    }
+  },
+  type: 'bar',
+
 }];
 var layout = {
   title: 'The Best Selling Product is : '.concat(Title1),
@@ -386,10 +394,42 @@ this.$set('Title1',Title1);
 this.$set('maxtitle',max1);
           }
 
+          else if(e==3)
+          {
+            var dict={};
+            months=[0,0,0,0,0,0,0,0,0,0,0,0]
+            for(var i=0;i<events.length;i++)
+            {
+              monthvar=new Date(events[i].Date).getMonth();
+              months[monthvar]=months[monthvar]+events[i].Amount;
+            }
+            var data = [{
+  x: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+  y: [months[0],months[1],months[2],months[3],months[4],months[5],months[6],months[7],months[8],months[9],months[10],months[11]],
+  marker:{
+    color: ['rgba(219, 64, 82, 1)','rgba(55,128,191,1)','rgba(50,171, 96, 0.7)','rgba(219, 64, 82, 1)','rgba(55,128,191,1)','rgba(50,171, 96, 0.7)','rgba(219, 64, 82, 1)','rgba(55,128,191,1)','rgba(50,171, 96, 0.7)','rgba(219, 64, 82, 1)','rgba(55,128,191,1)','rgba(50,171, 96, 0.7)'],
+    line: {
+      color: 'rgba(0,0,0,1.0)',
+      width: 1
+    }
+  
+  },
+  type: 'bar'
+}];
+
+var layout = {
+  title: 'Monthly Report',
+  yaxis:{
+    title:"Sales in $"
+  }
+}
+
+Plotly.newPlot('myDiv', data, layout);
+          
+          }
 
 
-
-          else if(e=2)
+          else if(e==2)
           {
             var dict={};
             dict['Merchant1']=0;
@@ -719,13 +759,20 @@ this.$set('maxtitle',max1);
               Merchant5='Merchant10';
               max5=dict['Merchant10'];
             }
-            
-            
+                        
 
 
 var data = [{
   x: [Merchant1,Merchant2,Merchant3,Merchant4,Merchant5],
   y: [max1,max2,max3,max4,max5],
+  marker:{
+    color: ['rgba(34,122,4,1.0)','rgba(55,128,191,1.0)','rgba(55,128,191,1.0)','rgba(55,128,191,1.0)','rgba(55,128,191,1.0)'],
+    line: {
+      color: 'rgba(0,0,0,1.0)',
+      width: 1
+    }
+  
+  },
   type: 'bar'
 }];
 this.$set('Merchant1',Merchant1);
@@ -747,6 +794,8 @@ Plotly.newPlot('myDiv', data, layout);
         .error(function (err) {
           console.log(err);
         });
+
+
     },
 
 

@@ -44,11 +44,11 @@ var TransactionSchema = new mongoose.Schema({
     },
     Date : {
       type : Date,
-      "default" : new Date(+(new Date()) - Math.floor(Math.random()*10000000000))
+      "default" : new Date(2017,Math.ceil(Math.random()*12),Math.ceil(Math.random()*30),Math.ceil(Math.random()*60),Math.ceil(Math.random()*60),Math.ceil(Math.random()*60))
     },
     TimeStamp: {
       type : Date,
-      "default" : Date.now,
+      "default" : new Date().getTime(),
       required : true
     },
     Title : String,
@@ -63,24 +63,6 @@ var TransactionSchema = new mongoose.Schema({
   },
     NameOfTheMerchant : String,
 });
+
 var transactionModel=mongoose.model('Transactions', TransactionSchema);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
